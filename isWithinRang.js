@@ -19,4 +19,36 @@ A positive integer
 
 [output] boolean
 
+[6, 2, 8, 10, 15, 1] and the range is 16, -- True
+[6, 2, 8, 10, 15, 1] and the range is 6, -- False
+
+
+
+Explore:
+
+
+Brainstorm:
+
+
+Plan:
+Find the greatest and smallest number and find the difference. 
+If the difference is > the given range, then return false. else return true. 
+
+Can use Max and Min, or can try the reduce method
+
 */
+function isWithInRang(array, range){
+    let min = Infinity;
+    let max = -Infinity;
+    for(const num of array){
+        if(min > num) {
+            min = num;
+        }else if(max < num){
+            max = num;
+        }
+    }
+    return max - min <= range
+}
+
+console.log(isWithInRang([6, 2, 8, 10, 15, 1] , 16)) // true
+console.log(isWithInRang([6, 2, 8, 10, 15, 1] , 6)) // false
