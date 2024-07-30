@@ -16,44 +16,7 @@ Explanation: The last index has the smallest pile with 1 rock, so it's ranked 1s
 Input: [80, 27, 55, 30, 15, 90, 10]
 Output: [6, 3, 5, 4, 2, 7, 1]
 Explanation:
-
- {
-  80: 0
-  27: 1
-  55: 2
-  ...
- }
-{
-  0: 80
-  1: 27
-  2: 55
-  ...
-}
-[[80,0],[27,1],[55,2]...] sort by element[0]
-
-[[],[],[27,1],[],[],[80,0],[]]
-
-[]
-Interate to input to build up a Map 
-[80, 27, 55, 30, 15, 90, 10]
-
-[
-  [10, 1] if input[i] === map[i][0], add map[i][1] to result [1]
-]
-  10: 1
-  15: 2
-  27: 3
-  30: 4
-  55: 5
-  80: 6
-  90: 7
-]
-
 Interate through Map and agins with Input array
-
-
-[1,2,3]
-
 10 -> 1
 15 -> 2
 27 -> 3
@@ -66,19 +29,10 @@ The last index has the smallest pile with 10 rocks, so it's ranked 1st place. Th
 Input: [2, 1]
 Output: [2, 1]
  
-
 🔎 EXPLORE
 List your assumptions & discoveries:
 
- 
-
 Insightful & revealing test cases:
-- Assume elements are positive
-
-- empty -> []
-- one length -> [1]
-- two length or more --> rank smallest to largest based by index position 
-- oven, or odd length
 
 
 🧠 BRAINSTORM
@@ -99,6 +53,4 @@ def rankPiles(piles: list[int]) -> list[int]:
 
 🧪 VERIFY
 Run tests. Methodically debug & analyze issues.
-
-'''
 */
