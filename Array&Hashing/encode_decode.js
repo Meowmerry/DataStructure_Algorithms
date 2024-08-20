@@ -34,69 +34,67 @@ strs[i] contains only UTF-8 characters.
 */
 
 class Solution {
+    /**
+     * @param {string[]} strs
+     * @returns {string}
+     */
     constructor(value = '') {
         this.value = value;
         this.empty = false;
     }
 
-    /**
-     * Encodes a list of strings to a single string.
-     * @param {string[]} strs
-     * @returns {string}
-     */
+
     encode(strs) {
-        if (strs.length === 0) {
+
+        //  if (strs.length === 0 || strs[0] === "") return this.value  // ""
+
+        if (strs.length == 0) {
             this.empty = true;
             return this.value;
         }
+
+        // if (strs[0] === "") return this.value
+        if (strs.length === 1) { // "Test"
+            this.value = strs[0]; // strs[0] === "Test"
+            return this.value; // Test
+        }
+
 
         this.value = strs.join(' ');
         return this.value;
     }
 
     /**
-     * Decodes a single string to a list of strings.
      * @param {string} str
      * @returns {string[]}
      */
-    decode(str) {
-        if (this.empty) return []; // If the original list was empty, return an empty array
-        if (str.length === 0) return [""];
+    decode(str) { // ""  , ""
+
+        // []==> encode --> "" -- decode -- []
+        // [""] --> encode ---return "" --> decode -->[""]
+
+        if (this.empty) return [""];
+
+        if (str.length === 0) return [];
         return str.split(' ');
+
     }
 }
+// const input1 = ["neet","code","love","you"]
+// const solution = new Solution()
+// const value = solution.encode(input1) // "neet code love you"
+// console.log(value)// "neet code love you"
+// console.log(solution.decode(value))// ["neet","code","love","you"]
+const input1 = [];
+console.log('input1', input1);
+const solution = new Solution();
+const value = solution.encode(input1);
+console.log(value);
+console.log(solution.decode(value));// []
 
-// Example 1:
-const input1 = ["neet", "code", "love", "you"];
-const solution1 = new Solution();
-const encoded1 = solution1.encode(input1);
-console.log(encoded1); // "neet code love you"
-console.log(solution1.decode(encoded1)); // ["neet", "code", "love", "you"]
-
-// Example 2:
-const input2 = ["we", "say", ":", "yes"];
-const solution2 = new Solution();
-const encoded2 = solution2.encode(input2);
-console.log(encoded2); // "we say : yes"
-console.log(solution2.decode(encoded2)); // ["we", "say", ":", "yes"]
-
-// Test case with an empty array:
-const input3 = [];
-const solution3 = new Solution();
-const encoded3 = solution3.encode(input3);
-console.log(encoded3); // ""
-console.log(solution3.decode(encoded3)); // []
-
-// Test case with an array containing an empty string:
-const input4 = [""];
-const solution4 = new Solution();
-const encoded4 = solution4.encode(input4);
-console.log(encoded4); // ""
-console.log(solution4.decode(encoded4)); // [""]
-
-// Test case with an array containing an empty string:
-const input5 = ["The quick brown fox", "jumps over the", "lazy dog", "1234567890", "abcdefghijklmnopqrstuvwxyz"];
-const solution5 = new Solution();
-const encoded5 = solution5.encode(input5);
-console.log(encoded5); // ""
-console.log(solution5.decode(encoded5)); // ["The quick brown fox", "jumps over the", "lazy dog", "1234567890", "abcdefghijklmnopqrstuvwxyz"];
+// const input2 = [""]
+// console.log('input2', input2);
+// const solution2 = new Solution()
+// const value2 = solution2.encode(input2) 
+// console.log(value2)// 
+// console.log(solution2.decode(value2))// [""]
