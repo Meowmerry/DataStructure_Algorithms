@@ -19,9 +19,7 @@ Time: O(n) Where n is the length array
 Space: O(1)
 
 Plan:
-- Interate thru the array
-- set variable count = 0
-const obj = new Map()
+
 
 Interate thru the array
 [1, 2, 2, 3, 3]
