@@ -162,3 +162,4 @@ function isAnagram(s, t) {
 console.log(isAnagram("racecar", "carrace")); // true
 console.log(isAnagram("jar", "jam")); //false
 console.log(isAnagram("jar", "jarm")); //false
+console.log(isAnagram("jar", "jam")); //false
