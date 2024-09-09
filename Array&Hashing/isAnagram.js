@@ -86,7 +86,7 @@ Implement
 //             }else{
 //                 sMap.set(char, 1);
 //             }
-              
+
 //         }
 
 //         for (const char of t) {
@@ -98,7 +98,7 @@ Implement
 //                 tMap.set(char, 1);
 //             }
 //         }
-        
+
 //         // console.log('sMap', sMap);
 //         // console.log('tMap', tMap);
 //         // build tMap on Key: letter, Value: Number 1++
@@ -132,14 +132,17 @@ function isAnagram(s, t) {
     // company each map to each other
     // Iterate throuth the s
     // build tMap on Key: letter, Value: Number 1++
-    for (const char of s) {
-        //  sMap.set(char, (sMap.get(char)|| 0 ) + 1);
-        if (sMap.get(char)) {
-            sMap.set(char, sMap.get(char) + 1); //tmap {j: 1, a:1, r:1}
-            tMap.set(char, tMap.get(char) + 1); //j a m 
+    for (let i = 0; i < s.length; i++) {
+
+        // sMap.set(s[i], (sMap.get(s[i]) || 0) + 1);
+        // tMap.set(t[i], (tMap.get(t[i]) || 0) + 1);
+
+        if (sMap.get(s[i]) && tMap.get(t[i])) {
+            sMap.set(s[i], sMap.get(s[i]) + 1); //tmap {j: 1, a:1, r:1}
+            tMap.set(t[i], tMap.get(t[i]) + 1); //j a m 
         } else {
-            sMap.set(char, 1);
-            tMap.set(char, 1);
+            sMap.set(s[i], 1);
+            tMap.set(t[i], 1);
         }
     }
 
@@ -151,11 +154,11 @@ function isAnagram(s, t) {
 
     // Iterate through the t
     // check if both Value is not equal return false
-    console.log("sMap", sMap)
-    console.log("tMap", tMap)
+    // console.log("sMap", sMap);
+    // console.log("tMap", tMap);
     return true;
 
 }
-console.log(isAnagram("racecar", "carrace"));
-console.log(isAnagram("jar", "jam"));
-console.log(isAnagram("jar", "jarm"));
+console.log(isAnagram("racecar", "carrace")); // true
+console.log(isAnagram("jar", "jam")); //false
+console.log(isAnagram("jar", "jarm")); //false
