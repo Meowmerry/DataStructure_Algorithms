@@ -152,7 +152,7 @@ function isAnagram(s, t) {
     // Iterate through the t
     // check if both Value is not equal return false
     console.log("sMap", sMap)
-    console.log("tMap", tMap)
+    console.log("tMap", tmap)
     return true;
 
 }
